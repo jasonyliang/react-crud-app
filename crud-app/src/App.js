@@ -1,18 +1,26 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-
+import React, { Component } from "react";
+import "./App.css";
+import MyComponent from "./components/myComponents.jsx";
 class App extends Component {
+  // onClick() {
+  //   alert("Clicked");
+  // }
+  // onMouseEnter() {
+  //   alert("Mouse Entered!!!!!");
+  // }
+
   render() {
+    const list = ["hello", "world", "xD"];
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <h1>My App</h1>
+        {list.map(i => {
+          return (
+            // <li onClick={this.onClick} onMouseEnter={this.onMouseEnter}>
+            <li key={i}>{i}</li>
+          );
+        })}
+        <MyComponent />
       </div>
     );
   }
