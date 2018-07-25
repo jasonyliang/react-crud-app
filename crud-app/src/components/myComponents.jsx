@@ -5,7 +5,7 @@ class MyComponent extends Component {
   render() {
     return (
       <div className="Component">
-        <p>Test Component</p>
+        <p>Title: {this.props.title}</p>
       </div>
     );
   }

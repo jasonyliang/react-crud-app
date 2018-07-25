@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
-import MyComponent from "./components/myComponents.jsx";
+import MyComponent from "./components/MyComponents.jsx";
 class App extends Component {
   // onClick() {
   //   alert("Clicked");
@@ -20,7 +20,10 @@ class App extends Component {
             <li key={i}>{i}</li>
           );
         })}
-        <MyComponent />
+        <MyComponent
+          title="This is the title of the component"
+          onSelected={true}
+        />
       </div>
     );
   }
