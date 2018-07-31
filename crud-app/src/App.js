@@ -23,6 +23,7 @@ class App extends Component {
         <MyComponent
           title="This is the title of the component"
           onSelected={true}
+          name="jhajhajhajha"
         />
       </div>
     );
