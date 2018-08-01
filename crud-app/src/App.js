@@ -13,7 +13,9 @@ class App extends Component {
 
     this.state = {
       name: "initial name",
-      title: "initial title"
+      title: "initial title",
+      check: true,
+      shouldRender: true
     };
   }
   onClick = () => {
@@ -27,6 +29,17 @@ class App extends Component {
       name: event.target.value
     });
   };
+  updateCheck = () => {
+    this.setState({
+      check: !this.state.check
+    });
+  };
+  // renderWords = words => {
+  //   if (!this.state.shouldRender) {
+  //     return null;
+  //   }
+  //   return words;
+  // };
   render() {
     const list = ["hello", "world", "xD"];
     return (
@@ -45,6 +58,16 @@ class App extends Component {
         />
 
         <input onChange={this.updateName} value={this.state.name} />
+        <input
+          type="checkbox"
+          onChange={this.updateCheck}
+          value={this.state.check}
+        />
+
+        {/* <p>{this.renderWords("Conditional Practice")}</p> */}
+        <div>
+          {this.state.shouldRender ? <div>Conditional Practice</div> : null}
+        </div>
       </div>
     );
   }
