@@ -8,7 +8,20 @@ class App extends Component {
   // onMouseEnter() {
   //   alert("Mouse Entered!!!!!");
   // }
+  constructor(props) {
+    super(props);
 
+    this.state = {
+      name: "initial name",
+      title: "initial title"
+    };
+  }
+  onClick = () => {
+    this.setState({
+      name: "New Name",
+      title: "New Title"
+    });
+  };
   render() {
     const list = ["hello", "world", "xD"];
     return (
@@ -21,9 +34,9 @@ class App extends Component {
           );
         })}
         <MyComponent
-          title="This is the title of the component"
-          onSelected={true}
-          name="jhajhajhajha"
+          title={this.state.title}
+          onClick={this.onClick}
+          name={this.state.name}
         />
       </div>
     );
