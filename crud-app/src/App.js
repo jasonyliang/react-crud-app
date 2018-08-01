@@ -22,7 +22,11 @@ class App extends Component {
       title: "New Title"
     });
   };
-
+  updateName = event => {
+    this.setState({
+      name: event.target.value
+    });
+  };
   render() {
     const list = ["hello", "world", "xD"];
     return (
@@ -39,6 +43,8 @@ class App extends Component {
           onClick={this.onClick}
           name={this.state.name}
         />
+
+        <input onChange={this.updateName} value={this.state.name} />
       </div>
     );
   }
