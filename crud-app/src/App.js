@@ -22,6 +22,7 @@ class App extends Component {
       title: "New Title"
     });
   };
+
   render() {
     const list = ["hello", "world", "xD"];
     return (
