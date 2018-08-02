@@ -28,6 +28,16 @@ class App extends Component {
   getProducts(name) {
     return this.state.products;
   }
+
+  onAdd = (name, price) => {
+    const products = this.getProducts();
+    products.push({
+      name,
+      price
+    });
+    this.setState({ products });
+  };
+
   onDelete = name => {
     const products = this.getProducts();
     const filteredProducts = products.filter(product => {
@@ -38,11 +48,25 @@ class App extends Component {
       products: filteredProducts
     });
   };
+
+  onEditSubmit = (name, price, originalName) => {
+    let products = this.getProducts();
+    products = products.map(product => {
+      if (product.name === originalName) {
+        product.name = name;
+        product.price = price;
+      }
+      return product;
+    });
+    this.setState({
+      products
+    });
+  };
   render() {
     return (
       <div className="App">
         <h1>Products Manage</h1>
-        <AddItem />
+        <AddItem onAdd={this.onAdd} />
         {this.state.products.map(product => {
           return (
             <ProductItem
@@ -51,6 +75,7 @@ class App extends Component {
               // price={product.price}
               {...product}
               onDelete={this.onDelete}
+              onEditSubmit={this.onEditSubmit}
             />
           );
         })}
