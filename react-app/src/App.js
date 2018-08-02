@@ -18,18 +18,25 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      products: []
+      products: JSON.parse(localStorage.getItem("products"))
     };
   }
   componentWillMount() {
-    this.getProducts();
-  }
-  getProducts() {
-    const products = JSON.parse(localStorage.getItem("products"));
+    const products = this.getProducts();
     this.setState({ products });
   }
+  getProducts(name) {
+    return this.state.products;
+  }
   onDelete = name => {
-    console.log(name);
+    const products = this.getProducts();
+    const filteredProducts = products.filter(product => {
+      return product.name !== name;
+    });
+
+    this.setState({
+      products: filteredProducts
+    });
   };
   render() {
     return (
