@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import ProductItem from "./ProductItem";
-
+import AddItem from "./AddItem";
 const products = [
   {
     name: "iPad",
@@ -42,7 +42,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Products Manage</h1>
-
+        <AddItem />
         {this.state.products.map(product => {
           return (
             <ProductItem
